@@ -70,6 +70,7 @@
     text-transform: uppercase;
     text-decoration: none;
   }
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-family: var(--mono);
@@ -397,14 +398,14 @@
     box-shadow: 0 0 10px currentColor;
   }
   .fitness-figure-link {
-    color: var(--accent4);
+    color: var(--accent2);
     text-decoration: none;
     font-family: var(--mono);
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-  .fitness-figure-link:hover { color: #9edfff; }
+  .fitness-figure-link:hover { color: #ff9e9e; }
   .fitness-figure-stage {
     position: relative;
     aspect-ratio: 1000 / 520;
@@ -588,7 +589,7 @@
     font-size: 0.74rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent4);
+    color: var(--accent);
   }
   .pbt-overview-note {
     color: var(--muted);
@@ -795,6 +796,8 @@
   .pbt-legend-swatch.bottom { background: rgba(255,107,107,0.18); border-color: rgba(255,107,107,0.35); }
   .pbt-legend-swatch.newworld { background: rgba(107,206,255,0.18); border-color: rgba(107,206,255,0.45); }
   .pbt-legend-swatch.dead { background: rgba(255,255,255,0.06); border-style: dashed; }
+  .pbt-overview-card { zoom: 1.25; }
+
   .pbt-overview-card [data-step] {
     opacity: 0;
     transform: translateY(14px);
@@ -829,9 +832,9 @@
     position: absolute;
     left: 0; top: 0; bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, var(--accent), var(--accent4));
+    background: linear-gradient(to bottom, var(--accent), var(--accent2));
   }
-  .cite-key { color: var(--accent4); }
+  .cite-key { color: var(--accent2); }
   .cite-value { color: var(--text); }
   .copy-btn {
     position: absolute;
@@ -1045,6 +1048,66 @@
     .pbt-world-row, .pbt-offspring-flow, .pbt-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
+  /* ── THEME TOGGLE BUTTON ── */
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 0.35rem 0.6rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ── LIGHT MODE ── */
+  html.light {
+    --bg: #f4f5f7;
+    --bg2: #eaecf1;
+    --bg3: #e2e6ed;
+    --card: #ffffff;
+    --border: rgba(0,0,0,0.10);
+    --text: #1a1d27;
+    --muted: #5b6475;
+    --accent: #2a8208;
+    --accent3: #8a6000;
+  }
+  html.light body { background: var(--bg); color: var(--text); }
+  html.light nav { background: rgba(244,245,247,0.9); }
+  html.light .abstract-text { color: #4b5563; }
+  html.light .fitness-figure-card,
+  html.light .pbt-overview-card {
+    background: linear-gradient(180deg, rgba(240,242,248,0.98), rgba(230,234,242,0.98));
+  }
+  html.light .fitness-figure-stage {
+    background:
+      radial-gradient(circle at top left, rgba(79,255,176,0.04), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(107,206,255,0.06), transparent 38%),
+      rgba(248,249,252,0.98);
+    border-color: rgba(0,0,0,0.08);
+  }
+  html.light .fitness-grid-line { stroke: rgba(0,0,0,0.10); }
+  html.light .fitness-axis-line { stroke: rgba(0,0,0,0.28); }
+  html.light .fitness-point { stroke: rgba(244,245,247,0.9); }
+  html.light .fitness-event-card { background: rgba(255,255,255,0.96); border-color: rgba(0,0,0,0.12); }
+  html.light .fitness-loading { background: rgba(244,245,247,0.3); }
+  html.light .copy-btn { background: rgba(0,0,0,0.04); }
+  html.light .btn-outline { background: rgba(0,0,0,0.02); }
+  html.light .pbt-offspring-node { background: rgba(0,0,0,0.02); }
+  html.light .pbt-legend-item { background: rgba(0,0,0,0.02); }
+  html.light .pbt-world { background: rgba(0,0,0,0.02); }
+  html.light .pbt-world.dead { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.2); }
+  html.light .pbt-meta-label { border-bottom-color: rgba(0,0,0,0.08); }
+  html.light .divider { background: linear-gradient(to right, transparent, rgba(0,0,0,0.12), transparent); }
+  html.light .pbt-arrow-divider::before,
+  html.light .pbt-arrow-divider::after { background: linear-gradient(to right, transparent, rgba(0,0,0,0.16), transparent); }
+  html.light .gif-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+  html.light .fitness-leader { stroke: rgba(0,0,0,0.35); }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -1059,6 +1122,13 @@
   .hero > *:nth-child(6) { animation-delay: 0.4s; }
   .hero > *:nth-child(7) { animation-delay: 0.45s; }
 </style>
+<script>
+(function(){
+  var s = localStorage.getItem('theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (s === 'light' || (!s && !prefersDark)) document.documentElement.classList.add('light');
+})();
+</script>
 </head>
 <body>
 
@@ -1072,12 +1142,15 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">PBT-NCA</a>
-  <ul class="nav-links">
-    <li><a href="#emergent">Emergent Dynamics</a></li>
-    <li><a href="#timeline">Evolution Timeline</a></li>
-    <li><a href="#method">Method</a></li>
-    <li><a href="#citation">Cite</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#emergent">Emergent Dynamics</a></li>
+      <li><a href="#timeline">Evolution Timeline</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#citation">Cite</a></li>
+    </ul>
+    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">☀</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1392,17 +1465,17 @@
                 <div class="pbt-offspring-node mutate">
                   <span class="pbt-offspring-node-label">Mutate</span>
                   <strong>Explore</strong>
-                  <p>Alter hyperparameters and world-level choices.</p>
+                  <p>Alter hyper parameters and world-level choices.</p>
                 </div>
                 <div class="pbt-offspring-node perturb">
                   <span class="pbt-offspring-node-label">Perturb</span>
                   <strong>Weight noise</strong>
-                  <p>Apply Gaussian perturbations to diversify behavior.</p>
+                  <p>Apply Gaussian noise to diversify behavior.</p>
                 </div>
                 <div class="pbt-offspring-node child">
                   <span class="pbt-offspring-node-label">Child</span>
                   <strong>New worlds</strong>
-                  <p>Spawn replacements for the discarded worlds.</p>
+                  <p>Spawn new worlds to replace the discarded ones.</p>
                 </div>
               </div>
               <div class="pbt-children-note">Elite worlds seed new offsprings that inherit useful ecological context before crossover, mutation, and perturbation push them into unexplored regimes.</div>
@@ -1711,6 +1784,18 @@ function initPbtOverviewAnimation() {
 
 document.addEventListener('DOMContentLoaded', initFitnessFigure);
 document.addEventListener('DOMContentLoaded', initPbtOverviewAnimation);
+
+function toggleTheme() {
+  var isLight = document.documentElement.classList.toggle('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  var btn = document.getElementById('theme-toggle');
+  if (btn) btn.textContent = isLight ? '☽' : '☀';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('theme-toggle');
+  if (btn) btn.textContent = document.documentElement.classList.contains('light') ? '☽' : '☀';
+});
 </script>
 
 </body>
