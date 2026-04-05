@@ -16,7 +16,7 @@
     --bg3: #111520;
     --card: #12151f;
     --border: rgba(255,255,255,0.07);
-    --accent: #4fffb0;
+    --accent: #62e62e;
     --accent2: #ff6b6b;
     --accent3: #ffd93d;
     --accent4: #6bceff;
@@ -30,6 +30,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html {
+    zoom: 1.25;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -44,34 +45,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE TEXTURE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.4;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ── GRADIENT BLOB BACKGROUND ── */
-  .bg-blobs {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.12;
-  }
-  .blob-1 { width: 600px; height: 600px; background: #4fffb0; top: -200px; left: -200px; }
-  .blob-2 { width: 500px; height: 500px; background: #6bceff; top: 40%; right: -150px; }
-  .blob-3 { width: 400px; height: 400px; background: #ff6b6b; bottom: 10%; left: 30%; }
 
   /* ── LAYOUT ── */
   .container { max-width: 1040px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
@@ -91,7 +64,7 @@
   }
   .nav-logo {
     font-family: var(--mono);
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: var(--accent);
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -100,7 +73,7 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-family: var(--mono);
-    font-size: 0.75rem;
+    font-size: 1.125rem;
     color: var(--muted);
     text-decoration: none;
     letter-spacing: 0.1em;
@@ -137,7 +110,7 @@
     letter-spacing: -0.01em;
   }
   .hero h1 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--accent);
   }
   .hero-subtitle {
@@ -149,13 +122,13 @@
     text-transform: uppercase;
   }
   .authors {
-    font-size: 0.96rem;
+    font-size: 1.7rem;
     color: var(--muted);
     margin-bottom: 0.6rem;
   }
   .authors strong { color: var(--text); font-weight: 500; }
   .affiliations {
-    font-size: 0.78rem;
+    font-size: 0.92rem;
     color: var(--muted);
     margin-bottom: 2.8rem;
     font-family: var(--mono);
@@ -177,13 +150,19 @@
     color: #060810;
     font-weight: 700;
   }
-  .btn-primary:hover { background: #7fffca; transform: translateY(-2px); }
+  .btn-primary:hover { background: #85f050; transform: translateY(-2px); }
   .btn-outline {
     border: 1px solid var(--border);
     color: var(--muted);
     background: rgba(255,255,255,0.03);
   }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .btn-github  { background: rgb(46, 151, 230);  color: #060810; font-weight: 700; }
+  .btn-github:hover  { background: rgb(80, 175, 255); transform: translateY(-2px); }
+  .btn-arxiv   { background: rgb(230, 46, 46);   color: #fff;    font-weight: 700; }
+  .btn-arxiv:hover   { background: rgb(255, 80, 80);  transform: translateY(-2px); }
+  .btn-explore { background: rgb(98, 230, 46);   color: #060810; font-weight: 700; }
+  .btn-explore:hover { background: rgb(130, 255, 70); transform: translateY(-2px); }
 
   /* ── FEATURED GIF STRIP ── */
   .featured-strip {
@@ -198,13 +177,14 @@
     flex: 1;
     width: 0;
     min-width: 0;
-    height: 118px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     object-fit: cover;
     display: block;
     transition: flex 0.5s ease, filter 0.3s;
     filter: saturate(1.1);
   }
-  .featured-strip img:hover { flex: 3; }
+  .featured-strip img:hover { flex: 1.8; }
 
   /* ── ABSTRACT ── */
   .abstract-section {
@@ -214,7 +194,7 @@
   }
   .section-label {
     font-family: var(--mono);
-    font-size: 0.68rem;
+    font-size: 1.02rem;
     letter-spacing: 0.25em;
     color: var(--accent);
     text-transform: uppercase;
@@ -267,7 +247,7 @@
   }
   .section-title {
     font-family: var(--serif);
-    font-size: 1.8rem;
+    font-size: 3.2rem;
     margin-bottom: 0.6rem;
     letter-spacing: -0.01em;
   }
@@ -830,6 +810,7 @@
     padding: 5rem 0;
     border-top: 1px solid var(--border);
     position: relative; z-index: 1;
+    text-align: left;
   }
   .cite-box {
     background: var(--card);
@@ -940,7 +921,7 @@
       margin-bottom: 2rem;
     }
     .authors {
-      font-size: 0.9rem;
+      font-size: 1.45rem;
     }
     .affiliations {
       font-size: 0.74rem;
@@ -953,7 +934,7 @@
       margin-bottom: 3.75rem;
     }
     .featured-strip img {
-      height: 96px;
+      height: auto;
     }
     .abstract-section,
     .gallery-section,
@@ -966,7 +947,7 @@
       margin-bottom: 1.1rem;
     }
     .section-title {
-      font-size: 1.55rem;
+      font-size: 2.6rem;
     }
     .section-desc {
       font-size: 0.84rem;
@@ -1049,7 +1030,7 @@
       line-height: 1.12;
     }
     .authors {
-      font-size: 0.94rem;
+      font-size: 1.3rem;
       line-height: 1.8;
     }
     .btn {
@@ -1117,12 +1098,12 @@
       <sup>4</sup>Prior Labs
     </p>
     <div class="hero-links">
-      <a class="btn btn-primary" href="https://github.com/arberzela/pbt-nca" target="_blank">↗ Code on GitHub</a>
-      <a class="btn btn-outline" href="https://arxiv.org" target="_blank">arXiv Preprint</a>
-      <a class="btn btn-outline" href="#emergent">Explore Results ↓</a>
+      <a class="btn btn-github"  href="https://github.com/arberzela/pbt-nca" target="_blank">↗ Code on GitHub</a>
+      <a class="btn btn-arxiv"   href="https://arxiv.org" target="_blank">arXiv Preprint</a>
+      <a class="btn btn-explore" href="#emergent">Explore Results ↓</a>
     </div>
 
-    <!-- FEATURED STRIP -->
+    <!-- FEATURED STRIP
     <div class="featured-strip">
       <img src="gifs/shooter.gif"            alt="Shooter" />
       <img src="gifs/glider.gif"             alt="Glider" />
@@ -1133,7 +1114,7 @@
       <img src="gifs/spirals.gif"            alt="Spirals" />
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- ABSTRACT -->
 <section class="abstract-section" id="abstract">
