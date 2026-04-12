@@ -409,10 +409,7 @@
   .fitness-figure-stage {
     position: relative;
     aspect-ratio: 1000 / 520;
-    background:
-      radial-gradient(circle at top left, rgba(79,255,176,0.06), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(107,206,255,0.10), transparent 38%),
-      rgba(6, 9, 14, 0.96);
+    background: rgba(6, 9, 14, 0.96);
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 4px;
     overflow: hidden;
@@ -1084,10 +1081,7 @@
     background: linear-gradient(180deg, rgba(240,242,248,0.98), rgba(230,234,242,0.98));
   }
   html.light .fitness-figure-stage {
-    background:
-      radial-gradient(circle at top left, rgba(79,255,176,0.04), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(107,206,255,0.06), transparent 38%),
-      rgba(248,249,252,0.98);
+    background: rgba(248,249,252,0.98);
     border-color: rgba(0,0,0,0.08);
   }
   html.light .fitness-grid-line { stroke: rgba(0,0,0,0.10); }
@@ -1742,7 +1736,7 @@ function renderFitnessFigure(stage, svg, series, checkpoints, smoothWindow) {
     entries.forEach((entry) => {
       if (entry.isIntersecting && !hasAnimated) {
         hasAnimated = true;
-        animate();
+        window.setTimeout(animate, 1000);
         observer.disconnect();
       }
     });
