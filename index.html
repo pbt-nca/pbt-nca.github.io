@@ -1526,11 +1526,15 @@
     <p style="font-size:0.9rem; color:var(--muted); margin-bottom:1.5rem; max-width: 600px;">If you find this work useful, please cite the paper:</p>
     <div class="cite-box" id="bibtex">
       <button class="copy-btn" onclick="copyBibtex()">Copy</button>
-<span class="cite-key">@inproceedings</span><span class="cite-value">{berdica2026pbtnca,</span><br/>
-&nbsp;&nbsp;<span class="cite-key">title</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cite-value">{Evolving Many Worlds: Towards Open-Ended Discovery in Petri Dish NCA via Population-Based Training}</span><br/>
-&nbsp;&nbsp;<span class="cite-key">author</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cite-value">{Berdica, Uljad and Foerster, Jakob and Hutter, Frank and Zela, Arber},</span><br/>
-&nbsp;&nbsp;<span class="cite-key">year</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="cite-value">{2026}</span><br/>
-<span class="cite-value">}</span>
+  <span class="cite-key">@misc</span><span class="cite-value">{berdica2026pbtnca,</span><br/>
+  &nbsp;&nbsp;<span class="cite-key">title</span>=<span class="cite-value">{Evolving Many Worlds: Towards Open-Ended Discovery in Petri Dish NCA via Population-Based Training}</span>,<br/>
+  &nbsp;&nbsp;<span class="cite-key">author</span>=<span class="cite-value">{Uljad Berdica and Jakob Foerster and Frank Hutter and Arber Zela}</span>,<br/>
+  &nbsp;&nbsp;<span class="cite-key">year</span>=<span class="cite-value">{2026}</span>,<br/>
+  &nbsp;&nbsp;<span class="cite-key">eprint</span>=<span class="cite-value">{2604.11248}</span>,<br/>
+  &nbsp;&nbsp;<span class="cite-key">archivePrefix</span>=<span class="cite-value">{arXiv}</span>,<br/>
+  &nbsp;&nbsp;<span class="cite-key">primaryClass</span>=<span class="cite-value">{cs.NE}</span>,<br/>
+  &nbsp;&nbsp;<span class="cite-key">url</span>=<span class="cite-value">{https://arxiv.org/abs/2604.11248}</span>,<br/>
+  <span class="cite-value">}</span>
     </div>
   </div>
 </section>
@@ -1552,10 +1556,14 @@
 <script src="fitness_frames_7/fitness_data.js"></script>
 <script>
 function copyBibtex() {
-  const text = `@inproceedings{berdica2026pbtnca,
-  title     = {Evolving Many Worlds: Towards Open-Ended Discovery in Petri Dish NCA via Population-Based Training},
-  author    = {Berdica, Uljad and Foerster, Jakob and Hutter, Frank and Zela, Arber},
-  year      = {2026}
+  const text = `@misc{berdica2026pbtnca,
+      title={Evolving Many Worlds: Towards Open-Ended Discovery in Petri Dish NCA via Population-Based Training}, 
+      author={Uljad Berdica and Jakob Foerster and Frank Hutter and Arber Zela},
+      year={2026},
+      eprint={2604.11248},
+      archivePrefix={arXiv},
+      primaryClass={cs.NE},
+      url={https://arxiv.org/abs/2604.11248}, 
 }`;
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.querySelector('.copy-btn');
