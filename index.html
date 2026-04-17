@@ -1344,14 +1344,14 @@
           <div class="step-num">02</div>
           <div class="step-body">
             <h4>Archive Update (FIFO)</h4>
-            <p>Top-<em>m</em> behavioral descriptors—species occupancy statistics (μ, σ, δ, entropy, alive-mass change)—are appended to a bounded FIFO archive. Archive novelty is computed as k-NN distance (k = 8) in descriptor space.</p>
+            <p>Top-<em>m</em> behavioral descriptors and species occupancy statistics (μ, σ, δ, entropy, alive-mass change) are appended to a bounded FIFO archive. Archive novelty is computed as k-NN distance (k = 8) in descriptor space.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <div class="step-body">
             <h4>DINOv2 Visual Diversity</h4>
-            <p>Each frame is encoded by a frozen <strong>DINOv2</strong> encoder. Per-world diversity is the median cosine distance to all other worlds at the same timestep, averaged over the rollout—rewarding novel morphology beyond what handcrafted descriptors capture.</p>
+            <p>Each frame is encoded by a frozen <strong>DINOv2</strong> encoder. Per-world diversity is the median cosine distance to all other worlds at the same timestep, averaged over the rollout to reward novel morphology beyond what handcrafted descriptors capture.</p>
           </div>
         </div>
         <div class="step">
