@@ -128,6 +128,13 @@
     margin-bottom: 0.6rem;
   }
   .authors strong { color: var(--text); font-weight: 500; }
+  .authors strong a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .authors strong a:hover {
+    text-decoration: underline;
+  }
   .affiliations {
     font-size: 0.92rem;
     color: var(--muted);
@@ -870,6 +877,13 @@
     letter-spacing: 0.15em;
   }
   .footer-text { font-size: 0.8rem; color: var(--muted); font-family: var(--mono); }
+  .footer-text a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .footer-text a:hover {
+    color: var(--accent);
+  }
   .footer-links { display: flex; gap: 1.5rem; }
   .footer-links a {
     font-family: var(--mono);
@@ -1153,10 +1167,10 @@
     <h1><em>Evolving Many Worlds</em><br />Open-Ended Discovery in<br />Petri Dish NCA<br />via Population-Based Training</h1>
     <p class="hero-subtitle">Open-Ended Discovery &nbsp;·&nbsp; Neural Cellular Automata &nbsp;·&nbsp; Emergent Dynamics</p>
     <p class="authors">
-      <strong>Uljad Berdica</strong><sup>1*</sup>,&nbsp;
+      <strong><a href="https://uljad.com" target="_blank" rel="noopener noreferrer">Uljad Berdica</a></strong><sup>1*</sup>,&nbsp;
       <strong>Jakob Foerster</strong><sup>1</sup>,&nbsp;
       <strong>Frank Hutter</strong><sup>4,3,2</sup>&nbsp; and&nbsp;
-      <strong>Arber Zela</strong><sup>2*</sup>
+      <strong><a href="https://arberzela.github.io/" target="_blank" rel="noopener noreferrer">Arber Zela</a></strong><sup>2*</sup>
     </p>
     <p class="affiliations">
       <sup>1</sup>FLAIR, University of Oxford &nbsp;·&nbsp;
@@ -1544,7 +1558,7 @@
   <div class="container">
     <div class="footer-inner">
       <span class="footer-logo">PBT-NCA</span>
-      <span class="footer-text">Uljad Berdica &amp; Arber Zela</span>
+      <span class="footer-text"><a href="https://uljad.com" target="_blank" rel="noopener noreferrer">Uljad Berdica</a> &amp; <a href="https://arberzela.github.io/" target="_blank" rel="noopener noreferrer">Arber Zela</a></span>
       <div class="footer-links">
         <a href="https://github.com/arberzela/pbt-nca" target="_blank">GitHub</a>
         <a href="mailto:arber.zela@tue.ellis.eu">Contact</a>
